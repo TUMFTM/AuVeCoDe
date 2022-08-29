@@ -2,6 +2,9 @@
 
 A tool for designing autonomous or conventional electric vehicles. The tool was created during the Ph.D. Thesis of Adrian König [[1]](#1) at the Institute of Automotive Technology of the Technical University of Munich
 
+![AuVeCoDe](https://user-images.githubusercontent.com/67913102/187223831-b9bfb8fd-44a5-4c15-8d63-d6598bb9c4a1.png)
+
+
 <h2><a ...section link code />Requirements</h2>
   
 * [MATLAB](https://de.mathworks.com/products/matlab.html) R2020b or newer
