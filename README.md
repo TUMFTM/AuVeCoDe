@@ -25,7 +25,7 @@ This section gives an overview of the AuVeCoDe Tool and how to use it. The AuVeC
  1. Standard selection is optimization mode. You can select "Single vehicle" to calculate just one vehicle. For optimization mode, you have to select an optimizer and the two optimization goals. You can also select the parts of the vehicle to be plotted under "Vizualization".
  2. You can select the vehicle parameters inside the different pages (1. General - 5. Optimization). The Optimization page will change depending on the "Single Vehicle" setting. You can also select the standard set "Conventional vehicle settings" or "Autonomous one-box vehicle settings". Detailled result data of the vehicle will be displayed in the "6. Results" Page.
  3. You can save the configuration or load a already saved configuration
- 4. You can save (especially when optimization mode is selected) a simulation for an external simulation e.g. on a compute cloud, where Matlab Userforms are not working. You can start the simulation with either [```LoadSimulation```](/03_GUI/LoadSimulation/) or [```LoadSimulation_nodesktop```](/03_GUI/LoadSimulation_nodesktop/) for MATLAB in the nodesktop mode.
+ 4. You can save (especially when optimization mode is selected) a simulation for an external simulation e.g. on a compute cloud, where Matlab Userforms are not working. You can start the simulation with either [```LoadSimulation```](/03_GUI/LoadSimulation.m) or [```LoadSimulation_nodesktop```](/03_GUI/LoadSimulation_nodesktop.m/) for MATLAB in the nodesktop mode.
  5. Click on "Run Simulation" to start the simulation. The status light will turn to yellow during calculation and becomes green after the simulation is finished.
  6. In this area either the vehicle length, weight and cost are shown (successfull simulation) or the reason of the termination of the calculation is shown.
 
@@ -52,7 +52,7 @@ During the optimization, the following windows are shown:
 1. The status of the running simulation is shown in the userform
 2. The current status of calculation (generation and population) is shown in the command window.
 3. The optimization goal values of the last population is plotted. If the goals are contradictory a pareto front is created over time.
-4. The best three or the best, middle and worst vehicle of one generation is plotted. You can change the mode in the [```plotnsga```](/02_Optimization/03_PlotFunctions/plotnsga) function in Line 380.
+4. The best three or the best, middle and worst vehicle of one generation is plotted. You can change the mode in the [```plotnsga```](/02_Optimization/03_PlotFunctions/plotnsga.m) function in Line 380.
 
 <h2><a ...section link code />Developers:</h2>
 
