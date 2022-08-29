@@ -1,0 +1,5 @@
+This efficiency diagram has been calculated with the tool Motor XP.
+More information to this regard is available at:
+[1] V. Kuptsov et al., „Electromagnetic Analysis and Design Methodology for Permanent
+    Magnet Motors Using MotorAnalysis-PM Software,“ Machines, vol. 7, no. 4, p. 75, 2019,
+    DOI: 10.3390/machines7040075.
