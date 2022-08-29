@@ -1,0 +1,30 @@
+FOLDER STRUCTURE OF 02_OPTIMIZER:
+---------------------------------------------------------------------
+----------FOLDER AND ZIPS-------------------------------------------
+---------------------------------------------------------------------
+-01_MOPSO: contains all functions for MOPSO and Multiswarm MOPSO.
+	--01_PSOMainScripts		: contains main scripts to run MOPSO and control settings.
+	--02_MainFunctions		: contains basic sub-functions for general PSO algorithm.
+	--03_MOPSOFunctions		: contains additional sub-functions for MOPSO.
+	--04_VisualizationFunctions	: contains sub-functions needed to visualize results by using plotnsga.
+-02_NSGA2: contains all functions for NSGA-II and Multipopulation NSGA-II.
+	--01_MainScripts	: contains main scripts to run NSGA-II.
+	--02_GeneticOperators	: contains sub-functions to perform genetic processes such as mutation, crossover, selection.
+	--03_FitnessFunctions	: contains sub-functions to evaluate fitness of individuals.
+	--04_SortingFunctions	: contains sub-functions to perform sorting of nondominated solutions.
+	--05_InitPop		: contains sub-functions to initialize population.
+	--06_OutputFunctions	: contains sub-functions for output and to plot optimization results.
+-03_PlotFunctions: contains functions to plot optimization results
+-04_EvaluationFunctions: contains useful functions to analyze optimization results.
+-94_TestOptions: .zip containing test functions needed to perform tests on optimizer parameters .
+---------------------------------------------------------------------
+-------------------MATLAB SCRIPTS--------------------------------------------------
+---------------------------------------------------------------------
+-Non_Linear_Constraints.m: contains non-linear constraints needed for all optimizer.
+-Objfunction.m: contains objective functions to evaluate fitness.
+-Opt_Init.m: initializes variables for optimization.
+---------------------------------------------------------------------
+------------------TEXT DATA------------------------------------------
+---------------------------------------------------------------------
+-FUNCTIONS_CHANGE_PROTOCOLL.txt: contains change protocol of functions non-related to optimizer algorithm.
+-OPTIMIZER_VERSION.txt: contains details about optimizer's pasts version.

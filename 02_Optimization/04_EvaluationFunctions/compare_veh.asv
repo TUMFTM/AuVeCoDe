@@ -1,0 +1,57 @@
+function [Compare] = compare_veh(veh_struct)
+
+    %% Description
+    % Function to compare vehicle concepts by vehicle properties
+    
+    % Author: Fabian Liemawan Adji
+    % Date: September 2021
+    
+    %% Input:
+    % veh_struct: struct containing multiples structs of vehicle concepts
+    % e.g.      veh_struct.X_GM1, veh_struct.GM_X1, veh.struct_GMGM1
+    %                       -veh_struct
+
+Properties = table;
+
+structlist = string(fieldnames(veh_struct));
+
+for i = 1:length(structlist)
+    Properties.Cost(i) = veh_struct.(structlist(i)).Cost.Manufacturing_Cost;
+    Properties.BatCap(i) = veh_struct.(structlist(i)).battery.energy_is_gross_in_kWh;
+    Properties.Range(i) = veh_struct.(structlist(i)).LDS.range;
+    Properties.MaxSpeed(i) = veh_struct.(structlist(i)).LDS.sim_speed.max_speed_is;
+    Properties.EmptyWeight(i) = veh_struct.(structlist(i)).masses.vehicle_empty_weight_EU;
+    Properties.MaxWeight(i) = veh_struct.(structlist(i)).masses.vehicle_max_weight;
+    Properties.Length(i) = veh_struct.(structlist(i)).dimensions.GX.vehicle_length;
+    Properties.Width(i) = veh_struct.(structlist(i)).dimensions.GY.vehicle_width;
+    Properties.Height(i) = veh_struct.(structlist(i)).dimensions.GZ.vehicle_height;
+    Properties.OverhangFr(i) = veh_struct.(structlist(i)).dimensions.GX.vehicle_overhang_f;
+    Properties.OverhangRe(i) = veh_struct.(structlist(i)).dimensions.GX.vehicle_overhang_r;
+    Properties.Wheelbase(i) = veh_struct.(structlist(i)).dimensions.GX.wheelbase;
+    
+    
+    T_max = zeros(2,1);
+    P_max = zeros(2,1);
+    for ii = 1:2
+        if isempty(veh_struct.(structlist(i)).e_machine{1, ii})
+            T_max(ii) = 0;
+            P_max(ii) = 0;
+            
+        else
+            T_max(ii) = veh_struct.(structlist(i)).e_machine{1, ii}.T_max * veh_struct.(structlist(i)).e_machine{1, ii}.quantity;
+            P_max(ii) = veh_struct.(structlist(i)).e_machine{1, ii}.P_max_mech * veh_struct.(structlist(i)).e_machine{1, ii}.quantity;
+        end
+    end
+    Properties.TorqueTotal(i) = sum(T_max);
+    Properties.PowerTotal(i) = sum(P_max);
+    Properties.Consumption(i) = veh_struct.(structlist(i)).LDS.sim_cons.consumption100km;
+end
+
+Properties = rows2vars(Properties);
+Properties.Properties.VariableNames = ["Kategorie",structlist'];
+writetable(Properties, "Result.xlsx", "Sheet", "Überblick");
+
+Compare.Prop = Properties;
+
+[Compare.Cost] = table_Cost(veh_struct);
+end
